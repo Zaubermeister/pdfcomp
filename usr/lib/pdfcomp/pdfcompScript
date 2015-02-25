@@ -5,7 +5,7 @@ pdftops \
 -nocenter \
 -level3 \
 -q \
-TheInputFile - \
+"TheInputFile" - \
 | ps2pdf14 \
 -dEmbedAllFonts=true \
 -dUseFlateCompression=true \
@@ -25,4 +25,4 @@ TheInputFile - \
 -dAutoFilterColorImages=false \
 -dColorImageDownsampleType=/Bicubic \
 -dPDFSETTINGS=/prepress \
-- /tmp/pdfcomp/TheOutputFile
+- "/tmp/pdfcomp/TheOutputFile"

@@ -1,9 +1,38 @@
 To Install:
+	//The version of PDFTK in Debian Stable has a bug that prevents this from working,
+	//and therefore it must be manually installed into /opt as /opt/pdftk-newer
+
+	//You must also have gcj-dev and g++ installed
+	$ sudo apt-get install gcj-dev g++
+	$ wget http://ftp.de.debian.org/debian/pool/main/p/pdftk/pdftk_2.02.orig.tar.gz
+	$ tar -zxvf pdftk_2.02.orig.tar.gz
+	$ cd pdftk-2.02-dist
+	$ cd pdftk
+	//Because the Debian Makefile seems not to work,
+	$ make -f Makefile.Slackware-13.1
+	$ cp pdftk /opt/pdftk-newer
 	$ ./configure
 	$ make
 	$ make install
 
-     copy the usr folder to the root of your filesystem to merge it with the already-existing usr folder
+     copy the usr/lib/pdfcomp directory in the source package into your /usr/lib directory.
+
+	$ make clean
 
 To Use:
-	$ pdfcomp -s BloatedInput.pdf -e -o SlimAttractiveOutput.pdf
+	$ pdfcomp -s BloatedInput.pdf -e -o SmallerOutput.pdf
+	
+	To edit the preferences used for compression of the PDF file,
+		nano /usr/lib/pdfcomp/pdfcompScript
+
+	The list of metadata fields (editable with -e) can be found on page 844 of:
+		https://www.adobe.com/content/dam/Adobe/en/devnet/acrobat/pdfs/pdf_reference_1-7.pdf
+
+	The list of switches for the compression script /usr/lib/pdfcomp/pdfcompScript can be found at:
+		http://ghostscript.com/doc/current/Ps2pdf.htm#Options
+	You may edit any of the switches in the pdfcompScript file to change global settings for compression.
+
+Bugs:
+	As of now, to ensure proper functioning of this tool, do not include spaces in directory or file names.
+
+

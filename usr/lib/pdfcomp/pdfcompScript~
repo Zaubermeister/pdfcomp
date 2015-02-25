@@ -25,4 +25,4 @@ TheInputFile - \
 -dAutoFilterColorImages=false \
 -dColorImageDownsampleType=/Bicubic \
 -dPDFSETTINGS=/prepress \
-- TheOutputFile
+- /tmp/pdfcomp/TheOutputFile
