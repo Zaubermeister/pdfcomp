@@ -1,0 +1,9 @@
+To Install:
+	$ ./configure
+	$ make
+	$ make install
+
+     copy the usr folder to the root of your filesystem to merge it with the already-existing usr folder
+
+To Use:
+	$ pdfcomp -s BloatedInput.pdf -e -o SlimAttractiveOutput.pdf

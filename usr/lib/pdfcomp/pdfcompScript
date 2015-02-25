@@ -1,0 +1,28 @@
+pdftops \
+-paper match \
+-nocrop \
+-noshrink \
+-nocenter \
+-level3 \
+-q \
+TheInputFile - \
+| ps2pdf14 \
+-dEmbedAllFonts=true \
+-dUseFlateCompression=true \
+-dOptimize=true \
+-dProcessColorModel=/DeviceRGB \
+-dUseCIEColor=true \
+-r72 \
+-dDownsampleGrayImages=true \
+-dGrayImageResolution=150 \
+-dAutoFilterGrayImages=false \
+-dGrayImageDownsampleType=/Bicubic \
+-dDownsampleMonoImages=true \
+-dMonoImageResolution=150 \
+-dMonoImageDownsampleType=/Bicubic \
+-dDownsampleColorImages=true \
+-dColorImageResolution=150 \
+-dAutoFilterColorImages=false \
+-dColorImageDownsampleType=/Bicubic \
+-dPDFSETTINGS=/prepress \
+- /tmp/pdfcomp/TheOutputFile
