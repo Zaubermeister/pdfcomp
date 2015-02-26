@@ -20,8 +20,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <unistd.h>
-
-void extractMetadata();
+#include <fstream>
+#include <sstream>
 
 int main(int argc, char* argv[])
 {
@@ -29,10 +29,10 @@ int main(int argc, char* argv[])
 		std::cout << "You must be root to properly use this command. " << "Even though you must use sudo, you, not root (unless you are logged in as root), will be the owner (and the group) of the new file." << std::endl;
 		return 0;}
 
-
+	/* Old Get CurDir Method
 	char wd[1024];
 	getcwd( wd, 1024 );
-	std::string curdir = wd;
+	std::string curdir = wd;*/
 
 	int argnum = argc;
 
@@ -45,9 +45,9 @@ int main(int argc, char* argv[])
 
 	if(argnum < 2)
 	{
-		std::cerr << rightWay /*<<
+		std::cerr << rightWay; /*<<
 			"Use the -h switch after calling the command to " <<
-			"see a much more full list of commands."*/;
+			"see a much more full list of commands."*/
 
 		return 0;
 	}
@@ -68,15 +68,9 @@ int main(int argc, char* argv[])
 		if(arg == "-s" || arg == "--source")
 			filename+=argv[i+1];
 
-		if(arg == "-o" || arg == "--output"){
+		if(arg == "-o" || arg == "--output")
 			outfile+=argv[i+1];
-			for(int o = i; o<argnum-2; o++)
-			{
-				outfile+=" ";
-				outfile+=argv[i+2];
-			}
 
-		}
 		if(arg == "-e" || arg == "--edit-metadata")
 			edit = 1;
 		/*if(arg == "-d" || arg == "--document-resolution")
@@ -94,6 +88,14 @@ int main(int argc, char* argv[])
 	initcopy+=filename;
 	initcopy+=" /tmp/pdfcomp/pdf.pdf";
 	system(initcopy.c_str());
+
+	/*New CurDir Method*/
+	system("pwd >> /tmp/pdfcomp/cwd");
+	std::ifstream t("/tmp/pdfcomp/cwd");
+	std::stringstream buffer;
+	buffer << t.rdbuf();
+	std::string curdir="";
+	curdir+=buffer.str();
 	
 	system("cp /usr/lib/pdfcomp/pdfcompScript /tmp/pdfcomp/script");
 
@@ -115,7 +117,7 @@ int main(int argc, char* argv[])
 
 	std::string scriptreplace2 = "sed -i 's/TheOutputFile/";
 	scriptreplace2+=outfiletmp;
-	scriptreplace2+="/' /tmp/pdfcomp/script";
+	scriptreplace2+=" /' /tmp/pdfcomp/script";
 
 	system(scriptreplace.c_str());
 	system(scriptreplace2.c_str());
@@ -129,18 +131,17 @@ int main(int argc, char* argv[])
 	system(metaUpdate.c_str());
 
 
-
 	std::string origdir = "cd ";
 	origdir+=curdir;
 	system(origdir.c_str());
 	
-
+/*
 	std::string abcdef = outfile;
-	std::string outfilenospace = abcdef.erase(abcdef.find(' '), 1);
+	std::string outfilenospace = abcdef.erase(abcdef.find(' '), 1);*/
 
 	
 	std::string copyback = "cp /tmp/pdfcomp/pdf3.pdf ";
-	copyback+=outfilenospace;
+	copyback+=outfile;
 
 	system(copyback.c_str());
 	
@@ -152,7 +153,7 @@ int main(int argc, char* argv[])
 	changeowner+=":";
 	changeowner+=name;
 	changeowner+=" ";
-	changeowner+="/tmp/pdfcomp/pdf3.pdf";
+	changeowner+=outfile;
 
 	system(changeowner.c_str());
 

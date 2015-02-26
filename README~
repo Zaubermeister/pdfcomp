@@ -1,5 +1,5 @@
 To Install:
-	//The version of PDFTK in Debian Stable has a bug that prevents this from working,
+	//The version of PDFTK in theDebian Wheezy repository has a bug that prevents this from working,
 	//and therefore it must be manually installed into /opt as /opt/pdftk-newer
 
 	//You must also have gcj-dev and g++ installed

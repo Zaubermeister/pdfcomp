@@ -35,4 +35,5 @@ To Use:
 Bugs:
 	As of now, to ensure proper functioning of this tool, do not include spaces in directory or file names.
 
+	As of now, the program can only input files and output files from the same directory as the executable file.
 

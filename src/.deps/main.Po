@@ -78,7 +78,16 @@ main.o: main.cc /usr/include/c++/4.7/iostream \
  /usr/include/x86_64-linux-gnu/sys/sysmacros.h /usr/include/alloca.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
- /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h
+ /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
+ /usr/include/c++/4.7/fstream /usr/include/c++/4.7/bits/codecvt.h \
+ /usr/include/c++/4.7/cstdio /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio.h \
+ /usr/include/c++/4.7/x86_64-linux-gnu/bits/basic_file.h \
+ /usr/include/c++/4.7/x86_64-linux-gnu/bits/c++io.h \
+ /usr/include/c++/4.7/bits/fstream.tcc /usr/include/c++/4.7/sstream \
+ /usr/include/c++/4.7/bits/sstream.tcc
 
 /usr/include/c++/4.7/iostream:
 
@@ -289,3 +298,29 @@ main.o: main.cc /usr/include/c++/4.7/iostream \
 /usr/include/x86_64-linux-gnu/bits/confname.h:
 
 /usr/include/getopt.h:
+
+/usr/include/c++/4.7/fstream:
+
+/usr/include/c++/4.7/bits/codecvt.h:
+
+/usr/include/c++/4.7/cstdio:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/sys_errlist.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio.h:
+
+/usr/include/c++/4.7/x86_64-linux-gnu/bits/basic_file.h:
+
+/usr/include/c++/4.7/x86_64-linux-gnu/bits/c++io.h:
+
+/usr/include/c++/4.7/bits/fstream.tcc:
+
+/usr/include/c++/4.7/sstream:
+
+/usr/include/c++/4.7/bits/sstream.tcc:
